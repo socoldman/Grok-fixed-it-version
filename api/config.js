@@ -12,6 +12,7 @@ module.exports = async (req, res) => {
 
             const config = {
                 supabaseUrl: process.env.SUPABASE_URL,
+                anonKey: process.env.SUPABASE_ANON_KEY,
                 environment: process.env.NODE_ENV || 'development'
             };
             res.status(200).json(config);
