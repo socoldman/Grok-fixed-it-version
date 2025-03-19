@@ -30,7 +30,6 @@
       {
           "src": "/(.*)",
           "dest": "/public/$1",
-          "handle": "filesystem"
       }
   ],
   "env": {
