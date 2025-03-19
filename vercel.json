@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "builds": [
+      {
+          "src": "public/**",
+          "use": "@vercel/static"
+      },
+      {
+          "src": "api/**/*.js",
+          "use": "@vercel/node"
+      }
+  ],
+  "routes": [
+      {
+          "src": "/api/csrf-token",
+          "dest": "/api/csrf-token.js"
+      },
+      {
+          "src": "/api/(.*)",
+          "dest": "/api/$1"
+      },
+      {
+          "src": "/(.+).dat",
+          "dest": "/api/dat.js"
+      },
+      {
+          "src": "/subject.txt",
+          "dest": "/api/subject.js"
+      },
+      {
+          "src": "/(.*)",
+          "dest": "/public/$1",
+          "handle": "filesystem"
+      }
+  ],
+  "env": {
+      "NODE_ENV": "production",
+      "SUPABASE_URL": "@supabase_url",
+      "SUPABASE_ANON_KEY": "@supabase_anon_key",
+      "CSRF_SECRET": "@csrf_secret"
+  }
+}

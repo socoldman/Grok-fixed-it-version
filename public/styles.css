@@ -1,0 +1,260 @@
+/* 全体のスタイル */
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --card-bg: #fff;
+    --border-color: #eee;
+    --meta-color: #777;
+    --accent-color: #4CAF50;
+    --accent-hover: #45a049;
+    --error-bg: #ffebee;
+    --error-color: #c62828;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --border-color: #404040;
+    --meta-color: #a0a0a0;
+    --accent-color: #66bb6a;
+    --accent-hover: #81c784;
+    --error-bg: #311111;
+    --error-color: #ff8a8a;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'メイリオ', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* スレッド作成フォーム */
+.new-thread-form {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-thread-form h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.new-thread-form input[type="text"],
+.new-thread-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.new-thread-form textarea {
+    height: 100px;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--accent-hover);
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+[data-theme="dark"] input[type="text"]:focus,
+[data-theme="dark"] textarea:focus {
+    box-shadow: 0 0 5px rgba(102, 187, 106, 0.5);
+}
+
+/* スレッド一覧 */
+.thread {
+    background: var(--card-bg);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thread-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.thread-meta {
+    font-size: 0.9em;
+    color: var(--meta-color);
+}
+
+.thread-content {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* スレッド詳細 */
+.thread-detail {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thread-navigation button {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 5px 10px;
+}
+
+.thread-navigation button:hover {
+    background-color: var(--accent-hover);
+    color: white;
+}
+
+.post {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-header {
+    font-size: 0.9em;
+    color: var(--meta-color);
+    margin-bottom: 5px;
+}
+
+.post-number {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.post-footer {
+    font-size: 0.85em;
+    color: var(--meta-color);
+    margin-top: 5px;
+}
+
+.anchor {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.anchor:hover {
+    text-decoration: underline;
+}
+
+.post-highlight {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid var(--accent-color);
+}
+
+.ng-post {
+    opacity: 0.5;
+    background-color: var(--error-bg);
+}
+
+.post-form {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.post-form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.post-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* エラー表示 */
+.error {
+    background-color: var(--error-bg);
+    color: var(--error-color);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* テーマ切り替えボタン */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .thread-header {
+        flex-direction: column;
+    }
+    
+    .post-buttons {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>リアルタイムちゃんねる</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2.39.3"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>リアルタイムちゃんねる</h1>
+        
+        <div class="new-thread-form">
+            <h2>新規スレッド作成</h2>
+            <input type="text" id="thread-title" placeholder="スレッドタイトル">
+            <textarea id="thread-content" placeholder="スレッド本文"></textarea>
+            <button id="post-thread-btn">スレッドを作成</button>
+        </div>
+
+        <div id="threads-list">
+            <p>読み込み中...</p>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# 環境変数
+.env
+.env.local
+.env.*.local
+
+# 依存関係
+node_modules/
+
+# ログ
+*.log
+npm-debug.log*
+
+# エディタ設定
+.vscode/
+.idea/
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db
+
+.vercel 
