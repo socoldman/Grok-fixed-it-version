@@ -25,8 +25,7 @@
     "nodemon": "^3.0.3"
   },
   "scripts": {
-    "dev": "vercel dev",
-    "build": "vercel build",
-    "start": "vercel"
+    "start": "node api/threads.js",
+    "dev": "nodemon api/threads.js"
   }
 }
