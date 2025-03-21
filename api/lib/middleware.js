@@ -7,7 +7,7 @@ const { doubleCsrf } = require('csrf-csrf');
 // CORS設定
 const corsMiddleware = cors({
     origin: process.env.NODE_ENV === 'production' 
-        ? 'https://ai-making-it.vercel.app' 
+        ? 'https://grok-fixed-it-version.vercel.app' 
         : 'http://localhost:3000',
     credentials: true
 });
