@@ -1,7 +1,7 @@
 const { createClient } = require('@supabase/supabase-js');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
-const DOMPurify = require('dompurify')(new JSDOM('').window);
+const DOMPurify = require('dompurify');
 
 // Supabaseクライアントの初期化
 if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) {
