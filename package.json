@@ -26,6 +26,7 @@
   },
   "scripts": {
     "start": "node api/threads.js",
+    "build": "vercel build",
     "dev": "nodemon api/threads.js"
   }
 }
