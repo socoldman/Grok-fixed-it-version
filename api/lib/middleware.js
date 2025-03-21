@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const { doubleCsrf } = require('csrf-csrf');
+const express = require('express');
 
 // CORS設定
 const corsMiddleware = cors({
@@ -55,17 +56,7 @@ const { generateToken, doubleCsrfProtection } = doubleCsrf({
     }
 });
 
-const csrfProtection = doubleCsrfProtection({
-    getSecret: () => process.env.CSRF_SECRET || 'your-secret-key',
-    cookieName: 'csrf',
-    cookieOptions: {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax'
-    }
-});
-
-const express = require('express');
+// ミドルウェアを適用する関数
 function applyMiddleware(req, res, next) {
     return new Promise((resolve, reject) => {
         express.json()(req, res, () => {
@@ -78,22 +69,6 @@ function applyMiddleware(req, res, next) {
                                 resolve();
                             });
                         });
-                    });
-                });
-            });
-        });
-    });
-}
-
-// ミドルウェアを適用する関数
-function applyMiddleware(req, res, next) {
-    return new Promise((resolve, reject) => {
-        corsMiddleware(req, res, () => {
-            cookieParserMiddleware(req, res, () => {
-                rateLimiter(req, res, () => {
-                    helmetMiddleware(req, res, () => {
-                        next();
-                        resolve();
                     });
                 });
             });
@@ -119,7 +94,7 @@ function applyCsrfToken(req, res) {
 function applyCsrfProtection(req, res, next) {
     return new Promise((resolve, reject) => {
         if (process.env.NODE_ENV === 'production') {
-            csrfProtection(req, res, (err) => {
+            doubleCsrfProtection(req, res, (err) => {
                 if (err) {
                     return reject(err);
                 }
