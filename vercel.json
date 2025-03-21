@@ -1,15 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    }
-  ],
+
+  
   "routes": [
     {
       "src": "/api/csrf-token",
@@ -35,7 +27,7 @@
   "env": {
     "NODE_ENV": "production",
     "SUPABASE_URL": "@supabase_url",
-    "SUPABASE_ANON_KEY": "@supabase_anon_key"
+    "SUPABASE_ANON_KEY": "@supabase_anon_key",
     "CSRF_SECRET": "@csrf_secret"
   }
 }
